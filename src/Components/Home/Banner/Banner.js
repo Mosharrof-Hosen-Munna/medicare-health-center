@@ -14,7 +14,7 @@ const Banner = () => {
       <Container>
         <Row lg={2} xs={1} className="g-4">
           <Col>
-            <div className="bg-light rounded p-5 h-auto">
+            <div className="bg-light rounded p-3 py-5 p-lg-4 py-xl-5 h-auto">
               <h1 className="text-navy mb-5">
                 Best Medical & Healthcare Service For Your Family
               </h1>

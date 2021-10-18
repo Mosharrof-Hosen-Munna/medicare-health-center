@@ -16,7 +16,7 @@ const Register = () => {
       <Container>
         <Row lg={2} xs={1} className="g-3">
           <Col>
-            <div className="rounded rounded-3 shadow-lg bg-light p-5">
+            <div className="rounded rounded-3 shadow-lg bg-light p-3 py-5 p-lg-4 py-xl-5">
               <h2 className="text-navy mb-3 text-center">
                 <FontAwesomeIcon
                   className="fa-1x text-info me-3"

@@ -1,0 +1,9 @@
+.service_cover {
+  background-image: url(../../../images/service-cover.jpg);
+
+  background-size: cover;
+}
+.service_cover_text {
+  background: linear-gradient(#0000003d, #0000003d);
+  padding: 110px 0px !important;
+}

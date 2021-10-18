@@ -8,6 +8,7 @@ import Register from "./Components/Register/Register";
 import Footer from "./Components/Shared/Footer/Footer";
 import About from "./Components/AboutUs/About";
 import Contact from "./Components/Contact/Contact";
+import Services from "./Components/Services/Services";
 
 {
   /* <Header></Header>
@@ -29,6 +30,9 @@ function App() {
         </Route>
         <Route path="/contact">
           <Contact></Contact>
+        </Route>
+        <Route path="/services">
+          <Services></Services>
         </Route>
         <Route path="/login">
           <Login></Login>
