@@ -1,0 +1,56 @@
+[
+  {
+    "id": 52,
+    "serviceName": "Diagnosis and Treatment",
+    "descriptions": "A great part of the patients which need a medical help, suffer from cardiovascular diseases.",
+    "serviceUrl": "https://demo.moxcreative.com/mediscare/wp-content/uploads/sites/51/2021/07/medical-exam-e1625293427879.jpg"
+  },
+  {
+    "id": 35,
+    "serviceName": "Find a Doctor",
+    "descriptions": "Veterinary clinic “Blue cross” offers modern diagnostic and therapeutical methods. Here can be diagnosed and cure all cardiac",
+    "serviceUrl": "https://demo.moxcreative.com/mediscare/wp-content/uploads/sites/51/2021/07/doctor-at-hospital-e1625292948163.jpg"
+  },
+  {
+    "id": 85,
+    "serviceName": "Clinical Trials",
+    "descriptions": "Our doctors constantly upgrade their knowledge by visiting courses, seminars and congresses.",
+    "serviceUrl": "https://demo.moxcreative.com/mediscare/wp-content/uploads/sites/51/2021/07/man-at-medical-examination-1024x684.jpg"
+  },
+  {
+    "id": 61,
+    "serviceName": "Make an Appointment",
+    "descriptions": "Many of our colleagues throughout the country use our facilities and knowledge for precise diagnostics",
+    "serviceUrl": "https://demo.moxcreative.com/mediscare/wp-content/uploads/sites/51/2021/07/multicultural-doctors-on-reception-e1625293042326.jpg"
+  },
+  {
+    "id": 94,
+    "serviceName": "Make an Appointment",
+    "descriptions": "Many of our colleagues throughout the country use our facilities and knowledge for precise diagnostics",
+    "serviceUrl": "https://images.pexels.com/photos/48603/pexels-photo-48603.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "id": 101,
+    "serviceName": "Apartment Sanitizing",
+    "descriptions": "Many of our colleagues throughout the country use our facilities and knowledge for precise diagnostics",
+    "serviceUrl": "https://images.pexels.com/photos/1170979/pexels-photo-1170979.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "id": 100,
+    "serviceName": "House Sanitizing",
+    "descriptions": "Many of our colleagues throughout the country use our facilities and knowledge for precise diagnostics",
+    "serviceUrl": "http://html.tonatheme.com/wp/korona-theme/wp-content/uploads/2020/12/s2.jpg"
+  },
+  {
+    "id": 66,
+    "serviceName": "Carpet Sanitizing",
+    "descriptions": "Many of our colleagues throughout the country use our facilities and knowledge for precise diagnostics",
+    "serviceUrl": "http://html.tonatheme.com/wp/korona-theme/wp-content/uploads/2020/12/s4.jpg"
+  },
+  {
+    "id": 555,
+    "serviceName": "Office Sanitizing",
+    "descriptions": "Many of our colleagues throughout the country use our facilities and knowledge for precise diagnostics",
+    "serviceUrl": "http://html.tonatheme.com/wp/korona-theme/wp-content/uploads/2020/12/s1.jpg"
+  }
+]

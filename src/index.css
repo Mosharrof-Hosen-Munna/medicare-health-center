@@ -21,11 +21,18 @@ code {
 }
 
 .bg-skyBlue {
-  background-color: rgb(39, 140, 207);
+  background-color: skyblue;
 }
 .text-align-justify {
   text-align: justify;
 }
 .w-90 {
   width: 90% !important;
+}
+.bg-blue-500 {
+  background-color: #edf1fc;
+}
+
+.single-doctor {
+  margin-bottom: 80px;
 }

@@ -6,9 +6,13 @@ import { Col, Button, Container, Form, Row } from "react-bootstrap";
 import loginImage from "../../images/login.svg";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
+  const { handleGoogleSignIn } = useAuth();
+
   const handleEmailLogin = () => {};
+
   return (
     <section
       style={{ minHeight: "650px" }}
@@ -47,7 +51,11 @@ const Login = () => {
               </div>
               <Row lg={2} xs={1} className="g-3">
                 <Col>
-                  <Button variant="info" className="w-100 text-white fw-bold">
+                  <Button
+                    onClick={handleGoogleSignIn}
+                    variant="info"
+                    className="w-100 text-white fw-bold"
+                  >
                     <FontAwesomeIcon
                       className="fa-1x text-white me-2"
                       icon={faGoogle}

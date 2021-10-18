@@ -1,0 +1,5 @@
+.service_details_cover {
+  background-image: url(../../../images/service-details-cover.jpg);
+
+  background-size: cover;
+}

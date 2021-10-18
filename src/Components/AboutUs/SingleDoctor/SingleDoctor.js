@@ -9,7 +9,7 @@ import {
 import { Col } from "react-bootstrap";
 const SingleDoctor = ({ doctorImage, name, passion }) => {
   return (
-    <Col>
+    <Col className="mb-lg-0 single-doctor">
       <div className="position-relative">
         <div>
           <img className="img-fluid rounded-3" src={doctorImage} alt="" />

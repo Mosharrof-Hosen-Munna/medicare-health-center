@@ -6,8 +6,10 @@ import { Col, Button, Container, Form, Row } from "react-bootstrap";
 import registerImage from "../../images/register.svg";
 import "./Register.css";
 import { Link } from "react-router-dom";
+
 const Register = () => {
   const handleEmailLogin = () => {};
+
   return (
     <section
       style={{ minHeight: "650px" }}

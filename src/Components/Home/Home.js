@@ -1,11 +1,15 @@
 import React from "react";
+import HomeServices from "./HomeServices/HomeServices";
 import Banner from "./Banner/Banner";
+import useServices from "../../hooks/useServices";
 
 const Home = () => {
+  const [services] = useServices();
   return (
-    <div>
+    <>
       <Banner></Banner>
-    </div>
+      <HomeServices services={services.slice(0, 6)}></HomeServices>
+    </>
   );
 };
 
