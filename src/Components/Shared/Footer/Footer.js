@@ -15,7 +15,7 @@ const Footer = () => {
         </Row>
       </Container>
       <hr />
-      <p className="text-white p-3 m-0 bg-navy text-center">
+      <p className=" p-3 m-0 bg-light text-center">
         Develop by
         <a target="_blank" href="">
           MH Munna

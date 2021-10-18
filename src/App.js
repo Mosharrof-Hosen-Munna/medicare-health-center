@@ -6,6 +6,9 @@ import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import Footer from "./Components/Shared/Footer/Footer";
+import About from "./Components/AboutUs/About";
+import Contact from "./Components/Contact/Contact";
+
 {
   /* <Header></Header>
       <Home></Home> */
@@ -20,6 +23,12 @@ function App() {
         </Route>
         <Route path="/home">
           <Home></Home>
+        </Route>
+        <Route path="/about">
+          <About></About>
+        </Route>
+        <Route path="/contact">
+          <Contact></Contact>
         </Route>
         <Route path="/login">
           <Login></Login>

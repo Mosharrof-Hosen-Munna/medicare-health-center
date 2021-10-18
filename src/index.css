@@ -26,3 +26,6 @@ code {
 .text-align-justify {
   text-align: justify;
 }
+.w-90 {
+  width: 90% !important;
+}
