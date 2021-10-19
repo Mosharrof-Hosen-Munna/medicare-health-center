@@ -74,7 +74,11 @@ const HeaderNav = () => {
               <img
                 width="50px"
                 className="rounded-circle"
-                src={user.photoURL}
+                src={
+                  user.photoURL
+                    ? user.photoURL
+                    : "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
+                }
                 alt=""
               />
             </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
@@ -9,9 +9,19 @@ import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
-  const { user, handleGoogleSignIn, handleGithubSignIn } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const {
+    user,
+    handleGoogleSignIn,
+    handleGithubSignIn,
+    handleEmailPasswordLogin,
+  } = useAuth();
 
-  const handleEmailLogin = () => {};
+  const handleEmailLogin = (e) => {
+    e.preventDefault();
+    handleEmailPasswordLogin(email, password);
+  };
 
   return (
     <section
@@ -29,15 +39,23 @@ const Login = () => {
                 />
                 Log In
               </h2>
-              <Form>
+              <Form onSubmit={handleEmailLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Control
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="email"
+                    placeholder="Enter email"
+                  />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
+                  <Form.Control
+                    onChange={(e) => setPassword(e.target.value)}
+                    type="password"
+                    placeholder="Password"
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                   <Form.Check type="checkbox" label="Remember me" />

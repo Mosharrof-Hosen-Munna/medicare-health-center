@@ -6,6 +6,8 @@ import {
   onAuthStateChanged,
   GithubAuthProvider,
   createUserWithEmailAndPassword,
+  updateProfile,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Firebase/firebase.init";
@@ -36,11 +38,24 @@ const useFirebase = () => {
     });
   };
 
-  const handleEmailPasswordRegister = (email, password) => {
+  const handleEmailPasswordRegister = (email, password, name) => {
     createUserWithEmailAndPassword(auth, email, password).then((result) => {
       const RegisterUser = result.user;
+      setUserName(name);
       console.log(RegisterUser);
     });
+  };
+
+  const handleEmailPasswordLogin = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password).then((result) => {
+      const loginUser = result.user;
+      setUser(loginUser);
+      console.log(loginUser);
+    });
+  };
+
+  const setUserName = (name) => {
+    updateProfile(auth.currentUser, { displayName: name }).then((result) => {});
   };
 
   const logOut = () => {
@@ -63,6 +78,9 @@ const useFirebase = () => {
     handleGoogleSignIn,
     logOut,
     handleGithubSignIn,
+    handleEmailPasswordRegister,
+    setUserName,
+    handleEmailPasswordLogin,
   };
 };
 

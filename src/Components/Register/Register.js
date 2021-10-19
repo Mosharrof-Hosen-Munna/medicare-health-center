@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
@@ -9,9 +9,21 @@ import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
-  const handleEmailLogin = () => {};
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const {
+    handleGoogleSignIn,
+    handleGithubSignIn,
+    handleEmailPasswordRegister,
+  } = useAuth();
 
-  const { handleGoogleSignIn, handleGithubSignIn } = useAuth();
+  const handleEmailRegistration = (e) => {
+    e.preventDefault();
+    handleEmailPasswordRegister(email, password, name);
+
+    console.log(email, password);
+  };
 
   return (
     <section
@@ -29,19 +41,34 @@ const Register = () => {
                 />
                 Register
               </h2>
-              <Form>
+              <Form onSubmit={handleEmailRegistration}>
                 <Form.Group className="mb-3" controlId="formName">
                   <Form.Label>Your Name</Form.Label>
-                  <Form.Control type="email" placeholder="Enter Your Name" />
+                  <Form.Control
+                    onChange={(e) => setName(e.target.value)}
+                    type="text"
+                    placeholder="Enter Your Name"
+                    required
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Control
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="email"
+                    placeholder="Enter email"
+                    required
+                  />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
+                  <Form.Control
+                    onChange={(e) => setPassword(e.target.value)}
+                    type="password"
+                    placeholder="Password"
+                    required
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                   <Form.Check type="checkbox" label="Remember me" />
