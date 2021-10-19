@@ -11,6 +11,7 @@ import useAuth from "../../hooks/useAuth";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const { handleGoogleSignIn, handleGithubSignIn, handleEmailPasswordLogin } =
     useAuth();
 
@@ -19,15 +20,18 @@ const Login = () => {
 
   const handleEmailLogin = (e) => {
     e.preventDefault();
-    handleEmailPasswordLogin(email, password).then((result) => {
-      history.push(location.state?.from || "/home");
-    });
+    handleEmailPasswordLogin(email, password)
+      .then((result) => {
+        history.push(location.state?.from || "/home");
+      })
+      .catch((e) => setError("Email or password wrong!"));
   };
 
   const signInGoogle = () => {
     handleGoogleSignIn()
       .then((result) => {
         history.push(location.state?.from || "/home");
+        console.log(result.user);
       })
       .catch((error) => console.log(error.message));
   };
@@ -54,6 +58,7 @@ const Login = () => {
                 />
                 Log In
               </h2>
+              {error && <h3 className="text-danger text-center">{error}</h3>}
               <Form onSubmit={handleEmailLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>

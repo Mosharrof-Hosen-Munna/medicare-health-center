@@ -5,6 +5,7 @@ import useServices from "../../hooks/useServices";
 
 const Home = () => {
   const [services] = useServices();
+
   return (
     <>
       <Banner></Banner>

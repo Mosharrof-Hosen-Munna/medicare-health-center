@@ -12,11 +12,13 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState({});
   const {
     handleGoogleSignIn,
     handleGithubSignIn,
     handleEmailPasswordRegister,
     setUserName,
+    setUser,
   } = useAuth();
 
   const location = useLocation();
@@ -25,25 +27,52 @@ const Register = () => {
   const signInGoogle = () => {
     handleGoogleSignIn()
       .then((result) => {
+        console.log(result.user);
         history.push(location.state?.from || "/home");
       })
       .catch((error) => console.log(error.message));
   };
 
+  const validationRegister = (name, password) => {
+    const errorMessage = {};
+    if (name.length < 5 || name.length > 15) {
+      errorMessage.name = "Name Must be between 5 to 15 characters";
+    }
+    if (password.length < 6 || password.length > 14) {
+      errorMessage.password = "Password Must be between 5 to 14 characters";
+    }
+    return errorMessage;
+  };
+
   const signInGithub = () => {
-    handleGithubSignIn().then((result) => {
-      history.push(location.state?.from || "/home");
-    });
+    handleGithubSignIn()
+      .then((result) => {
+        history.push(location.state?.from || "/home");
+      })
+      .catch((e) => console.log(e));
   };
 
   const handleEmailRegistration = (e) => {
     e.preventDefault();
-    handleEmailPasswordRegister(email, password, name).then((result) => {
-      setUserName(name);
-      history.push(location.state?.from || "/home");
-    });
 
-    console.log(email, password);
+    const errorMessage = validationRegister(name, password);
+
+    if (errorMessage.name || errorMessage.password) {
+      setError(errorMessage);
+      return;
+    }
+    handleEmailPasswordRegister(email, password, name)
+      .then((result) => {
+        setUserName(name);
+        const LoginUser = result.user;
+        setUser(LoginUser);
+        // emailVerification();
+        history.push(location.state?.from || "/home");
+        setError({});
+      })
+      .catch((e) => {
+        setError({ email: "User already exits this email" });
+      });
   };
 
   return (
@@ -71,6 +100,11 @@ const Register = () => {
                     placeholder="Enter Your Name"
                     required
                   />
+                  {error.name && (
+                    <Form.Text id="formName" className="text-danger">
+                      {error.name}
+                    </Form.Text>
+                  )}
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
@@ -80,6 +114,11 @@ const Register = () => {
                     placeholder="Enter email"
                     required
                   />
+                  {error.email && (
+                    <Form.Text id="formName" className="text-danger">
+                      {error.email}
+                    </Form.Text>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -90,6 +129,11 @@ const Register = () => {
                     placeholder="Password"
                     required
                   />
+                  {error.password && (
+                    <Form.Text id="formName" className="text-danger">
+                      {error.password}
+                    </Form.Text>
+                  )}
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                   <Form.Check type="checkbox" label="Remember me" />
