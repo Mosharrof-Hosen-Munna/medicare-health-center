@@ -19,18 +19,21 @@ const Register = () => {
     handleEmailPasswordRegister,
     setUserName,
     setUser,
+    setLoading,
   } = useAuth();
 
   const location = useLocation();
   const history = useHistory();
 
   const signInGoogle = () => {
+    setLoading(true);
     handleGoogleSignIn()
       .then((result) => {
         console.log(result.user);
         history.push(location.state?.from || "/home");
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => console.log(error.message))
+      .finally(() => setLoading(false));
   };
 
   const validationRegister = (name, password) => {
@@ -45,14 +48,17 @@ const Register = () => {
   };
 
   const signInGithub = () => {
+    setLoading(true);
     handleGithubSignIn()
       .then((result) => {
         history.push(location.state?.from || "/home");
       })
-      .catch((e) => console.log(e));
+      .catch((e) => console.log(e))
+      .finally(() => setLoading(false));
   };
 
   const handleEmailRegistration = (e) => {
+    setLoading(true);
     e.preventDefault();
 
     const errorMessage = validationRegister(name, password);
@@ -72,7 +78,8 @@ const Register = () => {
       })
       .catch((e) => {
         setError({ email: "User already exits this email" });
-      });
+      })
+      .finally(() => setLoading(false));
   };
 
   return (

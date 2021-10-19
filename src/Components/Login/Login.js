@@ -12,34 +12,44 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { handleGoogleSignIn, handleGithubSignIn, handleEmailPasswordLogin } =
-    useAuth();
+  const {
+    handleGoogleSignIn,
+    handleGithubSignIn,
+    handleEmailPasswordLogin,
+    setLoading,
+  } = useAuth();
 
   const location = useLocation();
   const history = useHistory();
 
   const handleEmailLogin = (e) => {
+    setLoading(true);
     e.preventDefault();
     handleEmailPasswordLogin(email, password)
       .then((result) => {
         history.push(location.state?.from || "/home");
       })
-      .catch((e) => setError("Email or password wrong!"));
+      .catch((e) => setError("Email or password wrong!"))
+      .finally(() => setLoading(false));
   };
 
   const signInGoogle = () => {
+    setLoading(true);
     handleGoogleSignIn()
       .then((result) => {
         history.push(location.state?.from || "/home");
-        console.log(result.user);
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => console.log(error.message))
+      .finally(() => setLoading(false));
   };
 
   const signInGithub = () => {
-    handleGithubSignIn().then((result) => {
-      history.push(location.state?.from || "/home");
-    });
+    setLoading(true);
+    handleGithubSignIn()
+      .then((result) => {
+        history.push(location.state?.from || "/home");
+      })
+      .finally(() => setLoading(false));
   };
 
   return (

@@ -16,6 +16,7 @@ initializeAuthentication();
 
 const useFirebase = () => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
@@ -42,16 +43,22 @@ const useFirebase = () => {
   };
 
   const logOut = () => {
-    signOut(auth).then(() => {
-      setUser(null);
-    });
+    setLoading(true);
+    signOut(auth)
+      .then(() => {
+        setUser(null);
+      })
+      .finally(() => setLoading(false));
   };
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+      } else {
+        setUser(null);
       }
+      setLoading(false);
     });
   }, [auth]);
 
@@ -64,6 +71,8 @@ const useFirebase = () => {
     handleEmailPasswordRegister,
     setUserName,
     handleEmailPasswordLogin,
+    loading,
+    setLoading,
   };
 };
 

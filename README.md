@@ -18,6 +18,7 @@ _Our goal is to provide eduction to everyone in every sector_
 > Clone the application from github using this link:
 
 - [x] https://github.com/Programming-Hero-Web-Course3/healthcare-related-website-Mosharrof-Hosen-Munna
+- [x] Live Site Link: https://medicare-f4600.web.app/
 
 > From the project directory run: -
 
