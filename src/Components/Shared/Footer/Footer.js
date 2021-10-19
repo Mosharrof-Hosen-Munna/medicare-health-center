@@ -17,7 +17,11 @@ const Footer = () => {
       <hr />
       <p className=" p-3 m-0 bg-light text-center">
         Develop by
-        <a target="_blank" href="">
+        <a
+          rel="noreferrer"
+          target="_blank"
+          href="https://www.facebook.com/profile.php?id=100028489011065"
+        >
           MH Munna
         </a>
         | &copy; 2021 all rights reserved

@@ -22,36 +22,19 @@ const useFirebase = () => {
   const githubProvider = new GithubAuthProvider();
 
   const handleGoogleSignIn = () => {
-    signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        const loginUser = result.user;
-        console.log(loginUser);
-        console.log(user);
-      })
-      .catch((error) => console.log(error.message));
+    return signInWithPopup(auth, googleProvider);
   };
 
   const handleGithubSignIn = () => {
-    signInWithPopup(auth, githubProvider).then((result) => {
-      const loginUser = result.user;
-      setUser(loginUser);
-    });
+    return signInWithPopup(auth, githubProvider);
   };
 
   const handleEmailPasswordRegister = (email, password, name) => {
-    createUserWithEmailAndPassword(auth, email, password).then((result) => {
-      const RegisterUser = result.user;
-      setUserName(name);
-      console.log(RegisterUser);
-    });
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const handleEmailPasswordLogin = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password).then((result) => {
-      const loginUser = result.user;
-      setUser(loginUser);
-      console.log(loginUser);
-    });
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   const setUserName = (name) => {
@@ -68,10 +51,9 @@ const useFirebase = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        console.log(user);
       }
     });
-  }, []);
+  }, [auth]);
 
   return {
     user,

@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import doctor1 from "../../../images/doctor1.jpg";
 import doctor2 from "../../../images/doctor2.jpg";
 import doctor3 from "../../../images/doctor3.jpg";

@@ -5,22 +5,37 @@ import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Col, Button, Container, Form, Row } from "react-bootstrap";
 import loginImage from "../../images/login.svg";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {
-    user,
-    handleGoogleSignIn,
-    handleGithubSignIn,
-    handleEmailPasswordLogin,
-  } = useAuth();
+  const { handleGoogleSignIn, handleGithubSignIn, handleEmailPasswordLogin } =
+    useAuth();
+
+  const location = useLocation();
+  const history = useHistory();
 
   const handleEmailLogin = (e) => {
     e.preventDefault();
-    handleEmailPasswordLogin(email, password);
+    handleEmailPasswordLogin(email, password).then((result) => {
+      history.push(location.state?.from || "/home");
+    });
+  };
+
+  const signInGoogle = () => {
+    handleGoogleSignIn()
+      .then((result) => {
+        history.push(location.state?.from || "/home");
+      })
+      .catch((error) => console.log(error.message));
+  };
+
+  const signInGithub = () => {
+    handleGithubSignIn().then((result) => {
+      history.push(location.state?.from || "/home");
+    });
   };
 
   return (
@@ -70,7 +85,7 @@ const Login = () => {
               <Row lg={2} xs={1} className="g-3">
                 <Col>
                   <Button
-                    onClick={handleGoogleSignIn}
+                    onClick={signInGoogle}
                     variant="info"
                     className="w-100 text-white fw-bold"
                   >
@@ -83,7 +98,7 @@ const Login = () => {
                 </Col>
                 <Col>
                   <Button
-                    onClick={handleGithubSignIn}
+                    onClick={signInGithub}
                     variant="primary"
                     className="w-100 fw-bold"
                   >

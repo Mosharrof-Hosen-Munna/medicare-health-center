@@ -21,25 +21,41 @@ const SingleDoctor = ({ doctorImage, name, passion }) => {
           <h6 className="text-info">{passion}</h6>
           <h3 className="text-white">{name}</h3>
           <div className=" mt-4">
-            <a href="">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://www.facebook.com/profile.php?id=100028489011065"
+            >
               <FontAwesomeIcon
                 className="fa-2x text-white me-3 p-2 bg-info rounded-circle"
                 icon={faFacebook}
               />
             </a>
-            <a href="">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://www.facebook.com/profile.php?id=100028489011065"
+            >
               <FontAwesomeIcon
                 className="fa-2x text-white me-3 p-2 bg-info rounded-circle"
                 icon={faTwitter}
               />
             </a>
-            <a href="">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://www.facebook.com/profile.php?id=100028489011065"
+            >
               <FontAwesomeIcon
                 className="fa-2x text-white me-3 p-2 bg-info rounded-circle"
                 icon={faYoutube}
               />
             </a>
-            <a href="">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://www.facebook.com/profile.php?id=100028489011065"
+            >
               <FontAwesomeIcon
                 className="fa-2x text-white p-2 bg-info rounded-circle"
                 icon={faInstagram}

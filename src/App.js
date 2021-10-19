@@ -11,6 +11,9 @@ import Contact from "./Components/Contact/Contact";
 import Services from "./Components/Services/Services";
 import ServiceDetails from "./Components/ServiceDetails/ServiceDetails";
 import AuthProvider from "./Components/AuthProvider/AuthProvider";
+import PrivateRoute, {
+  AuthPrivateRoute,
+} from "./Components/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -27,21 +30,21 @@ function App() {
           <Route path="/about">
             <About></About>
           </Route>
-          <Route path="/contact">
+          <PrivateRoute path="/contact">
             <Contact></Contact>
-          </Route>
-          <Route path="/services">
+          </PrivateRoute>
+          <PrivateRoute path="/services">
             <Services></Services>
-          </Route>
-          <Route path="/service/:id">
+          </PrivateRoute>
+          <PrivateRoute path="/service/:id">
             <ServiceDetails></ServiceDetails>
-          </Route>
-          <Route path="/login">
+          </PrivateRoute>
+          <AuthPrivateRoute path="/login">
             <Login></Login>
-          </Route>
-          <Route path="/register">
+          </AuthPrivateRoute>
+          <AuthPrivateRoute path="/register">
             <Register></Register>
-          </Route>
+          </AuthPrivateRoute>
           <Route path="*">
             <NotFound></NotFound>
           </Route>

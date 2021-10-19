@@ -8,7 +8,7 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
-import { Link, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import logo from "../../../../images/medicare-logo.png";
 import useAuth from "../../../../hooks/useAuth";
 const HeaderNav = () => {
@@ -27,39 +27,75 @@ const HeaderNav = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
         <Navbar.Collapse id="basic-navbar-nav ">
           <Nav className=" fw-bold">
-            <Link className="nav-link" to="/home">
+            <NavLink
+              exact
+              activeClassName="text-info"
+              className="nav-link"
+              to="/home"
+            >
               HOME
-            </Link>
-            <Link className="nav-link" to="/about">
+            </NavLink>
+            <NavLink
+              exact
+              activeClassName="text-info"
+              className="nav-link"
+              to="/about"
+            >
               ABOUT US
-            </Link>
-            <Link className="nav-link" to="/services">
+            </NavLink>
+            <NavLink
+              exact
+              activeClassName="text-info"
+              className="nav-link"
+              to="/services"
+            >
               SERVICES
-            </Link>
-            <Link className="nav-link" to="/contact">
+            </NavLink>
+            <NavLink
+              exact
+              activeClassName="text-info"
+              className="nav-link"
+              to="/contact"
+            >
               CONTACT
-            </Link>
+            </NavLink>
           </Nav>
           <div className={user ? "mx-auto" : "ms-auto"}>
-            <a href="">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://www.facebook.com/profile.php?id=100028489011065"
+            >
               <FontAwesomeIcon
                 className="fa-2x me-3 text-primary"
                 icon={faFacebook}
               />
             </a>
-            <a href="">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://www.facebook.com/profile.php?id=100028489011065"
+            >
               <FontAwesomeIcon
                 className="fa-2x me-3 text-success"
                 icon={faTwitter}
               />
             </a>
-            <a href="">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://www.facebook.com/profile.php?id=100028489011065"
+            >
               <FontAwesomeIcon
                 className="fa-2x me-3 text-danger"
                 icon={faYoutube}
               />
             </a>
-            <a href="">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://www.facebook.com/profile.php?id=100028489011065"
+            >
               <FontAwesomeIcon
                 className="fa-2x  text-info"
                 icon={faInstagram}

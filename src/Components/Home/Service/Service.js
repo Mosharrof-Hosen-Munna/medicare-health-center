@@ -3,7 +3,6 @@ import { Card, Col, Button } from "react-bootstrap";
 import { useHistory } from "react-router";
 
 const Service = ({ service }) => {
-  console.log(service);
   const history = useHistory();
   const handleServiceDetails = () => {
     history.push(`/service/${service.id}`);
