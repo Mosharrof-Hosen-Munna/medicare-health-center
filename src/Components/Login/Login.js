@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Col, Button, Container, Form, Row } from "react-bootstrap";
 import loginImage from "../../images/login.svg";
 import "./Login.css";
@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
-  const { handleGoogleSignIn } = useAuth();
+  const { user, handleGoogleSignIn, handleGithubSignIn } = useAuth();
 
   const handleEmailLogin = () => {};
 
@@ -64,12 +64,16 @@ const Login = () => {
                   </Button>
                 </Col>
                 <Col>
-                  <Button variant="primary" className="w-100 fw-bold">
+                  <Button
+                    onClick={handleGithubSignIn}
+                    variant="primary"
+                    className="w-100 fw-bold"
+                  >
                     <FontAwesomeIcon
                       className="fa-1x text-white me-2"
-                      icon={faFacebook}
+                      icon={faGithub}
                     />
-                    Facebook Sign In
+                    Github Sign In
                   </Button>
                 </Col>
               </Row>

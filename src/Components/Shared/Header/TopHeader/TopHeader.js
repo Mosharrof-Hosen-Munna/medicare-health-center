@@ -8,12 +8,16 @@ import {
   faLock,
 } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router";
+import useAuth from "../../../../hooks/useAuth";
 
 const TopHeader = () => {
   const history = useHistory();
   const handleLoginClick = () => {
     history.push("/login");
   };
+
+  const { user, logOut } = useAuth();
+
   return (
     <Row>
       <Col lg={3} className="d-none d-lg-block ">
@@ -57,14 +61,27 @@ const TopHeader = () => {
       </Col>
       <Col lg={3} className="d-none d-lg-block my-auto ">
         <div className="d-flex align-items-center justify-content-end">
-          <Button
-            onClick={handleLoginClick}
-            variant="danger"
-            className="rounded-pill px-5 fw-bold"
-          >
-            <FontAwesomeIcon className="fa-1x me-3 text-white" icon={faLock} />
-            Log In
-          </Button>
+          {user ? (
+            <Button
+              onClick={logOut}
+              variant="danger"
+              className="rounded-pill px-5 fw-bold"
+            >
+              Logout
+            </Button>
+          ) : (
+            <Button
+              onClick={handleLoginClick}
+              variant="primary"
+              className="rounded-pill px-5 fw-bold"
+            >
+              <FontAwesomeIcon
+                className="fa-1x me-3 text-white"
+                icon={faLock}
+              />
+              Log In
+            </Button>
+          )}
         </div>
       </Col>
     </Row>

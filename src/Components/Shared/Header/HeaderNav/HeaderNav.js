@@ -10,19 +10,23 @@ import {
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { Link, useHistory } from "react-router-dom";
 import logo from "../../../../images/medicare-logo.png";
+import useAuth from "../../../../hooks/useAuth";
 const HeaderNav = () => {
   const history = useHistory();
   const handleLoginClick = () => {
     history.push("/login");
   };
+
+  const { user, logOut } = useAuth();
+
   return (
     <>
       <Navbar bg="light" expand="lg">
         <img className="w-75 d-block d-lg-none" src={logo} alt="" />
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto fw-bold">
+        <Navbar.Collapse id="basic-navbar-nav ">
+          <Nav className=" fw-bold">
             <Link className="nav-link" to="/home">
               HOME
             </Link>
@@ -36,7 +40,7 @@ const HeaderNav = () => {
               CONTACT
             </Link>
           </Nav>
-          <div>
+          <div className={user ? "mx-auto" : "ms-auto"}>
             <a href="">
               <FontAwesomeIcon
                 className="fa-2x me-3 text-primary"
@@ -61,10 +65,33 @@ const HeaderNav = () => {
                 icon={faInstagram}
               />
             </a>
+          </div>
+          {user && (
+            <div className="d-flex ms-auto align-items-center">
+              <h5 className="fw-bold text-secondary me-3">
+                {user.displayName}
+              </h5>
+              <img
+                width="50px"
+                className="rounded-circle"
+                src={user.photoURL}
+                alt=""
+              />
+            </div>
+          )}
+          {user ? (
+            <Button
+              onClick={logOut}
+              variant="danger"
+              className="rounded-pill d-block d-lg-none px-5 fw-bold"
+            >
+              Logout
+            </Button>
+          ) : (
             <Button
               onClick={handleLoginClick}
-              variant="danger"
-              className="rounded-pill px-5 fw-bold d-block d-lg-none mt-3"
+              variant="primary"
+              className="rounded-pill d-block d-lg-none px-5 fw-bold"
             >
               <FontAwesomeIcon
                 className="fa-1x me-3 text-white"
@@ -72,7 +99,7 @@ const HeaderNav = () => {
               />
               Log In
             </Button>
-          </div>
+          )}
         </Navbar.Collapse>
       </Navbar>
     </>

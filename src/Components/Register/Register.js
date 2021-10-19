@@ -1,14 +1,17 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Col, Button, Container, Form, Row } from "react-bootstrap";
 import registerImage from "../../images/register.svg";
 import "./Register.css";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
   const handleEmailLogin = () => {};
+
+  const { handleGoogleSignIn, handleGithubSignIn } = useAuth();
 
   return (
     <section
@@ -52,7 +55,11 @@ const Register = () => {
               </div>
               <Row lg={2} xs={1} className="g-3">
                 <Col>
-                  <Button variant="info" className="w-100 text-white fw-bold">
+                  <Button
+                    onClick={handleGoogleSignIn}
+                    variant="info"
+                    className="w-100 text-white fw-bold"
+                  >
                     <FontAwesomeIcon
                       className="fa-1x text-white me-2"
                       icon={faGoogle}
@@ -61,12 +68,16 @@ const Register = () => {
                   </Button>
                 </Col>
                 <Col>
-                  <Button variant="primary" className="w-100 fw-bold">
+                  <Button
+                    onClick={handleGithubSignIn}
+                    variant="primary"
+                    className="w-100 fw-bold"
+                  >
                     <FontAwesomeIcon
                       className="fa-1x text-white me-2"
-                      icon={faFacebook}
+                      icon={faGithub}
                     />
-                    Facebook Sign In
+                    Github Sign In
                   </Button>
                 </Col>
               </Row>
